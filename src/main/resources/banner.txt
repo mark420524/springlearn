@@ -1,0 +1,3 @@
+my first spring boot project
+${application.title} runs on ${application.version}
+spring boot version ${spring-boot.version}
