@@ -1,2 +1,30 @@
 server:
   port: 8888
+
+spring:
+  profiles:
+    active: dev
+  config:
+    import: optional:configtree:E:/etc/config/*/
+name: classpathapplication
+
+
+my:
+  service:
+    remote-address: 192.168.1.1
+    security:
+      username: "admin"
+      roles:
+      - "USER"
+      - "ADMIN"
+  session-timeout: 30m
+  number: 5
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+      
+name: multidev

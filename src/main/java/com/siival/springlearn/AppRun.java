@@ -3,13 +3,16 @@ package com.siival.springlearn;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
+@ConfigurationPropertiesScan("com.siival.springlearn.config")
 public class AppRun {
 	
 	public static void main(String[] args) {
 		SpringApplication spring = new SpringApplication(AppRun.class);
 		spring.setBannerMode(Banner.Mode.CONSOLE);
+//		spring.setAddCommandLineProperties(false);
 		spring.run(args);
 	}
 

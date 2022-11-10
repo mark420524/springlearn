@@ -1,0 +1,5 @@
+name: classpath/config/applicationdev
+
+spring:
+  config:
+    import: "optional:./dev.yml"
