@@ -6,6 +6,8 @@ spring:
     active: dev
   config:
     import: optional:configtree:E:/etc/config/*/
+  messages:
+    basename: i18n/message
 name: classpathapplication
 
 
