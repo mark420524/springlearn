@@ -13,7 +13,7 @@ public class AppRun {
 	
 	public static void main(String[] args) {
 		SpringApplication spring = new SpringApplication(AppRun.class);
-		spring.setBannerMode(Banner.Mode.CONSOLE);
+		spring.setBannerMode(Banner.Mode.OFF);
 //		spring.setAddCommandLineProperties(false);
 		spring.run(args);
 	}
