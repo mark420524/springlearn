@@ -1,4 +1,4 @@
-package com.siival.springlearn;
+package com.siival.springlearn.config;
 
 import org.springframework.boot.test.context.TestConfiguration;
 
