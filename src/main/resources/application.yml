@@ -8,6 +8,28 @@ spring:
     import: optional:configtree:E:/etc/config/*/
   messages:
     basename: i18n/message
+  cache:
+    type: redis
+  data:
+    redis:
+      database: 2
+      host: 192.168.247.128
+      port: 6379
+      timeout: 5000
+  mail:
+    host: 
+    protocol: smtps
+    port: 
+    username: 
+    password: 
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            
+
 name: classpathapplication
 
 

@@ -1,18 +1,30 @@
 package com.siival.springlearn.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.siival.springlearn.enums.Sensitive;
+import com.siival.springlearn.enums.SensitiveStragtey;
 public class Person {
+	
 	
 	private Integer id;
 //	@JsonProperty("firstName")
 	private String name;
 	private LocalDateTime createTime;
-	@JsonFormat(pattern = "yyyy-MM-dd")
+//	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDateTime updateTime;
+	@Sensitive(stragety = SensitiveStragtey.MOBILE)
+	private String mobile;
+	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -36,6 +48,9 @@ public class Person {
 	}
 	public void setUpdateTime(LocalDateTime updateTime) {
 		this.updateTime = updateTime;
+	}
+	public Person() {
+		super();
 	}
 	
 
