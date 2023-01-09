@@ -28,7 +28,12 @@ spring:
           auth: true
           ssl:
             enable: true
-            
+  rabbitmq:
+    host: 192.168.247.128
+    port: 5672
+    username: admin
+    password: admin
+
 
 name: classpathapplication
 
