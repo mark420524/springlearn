@@ -4,8 +4,8 @@ server:
 spring:
   profiles:
     active: dev
-  config:
-    import: optional:configtree:E:/etc/config/*/
+  #config:
+  #  import: optional:configtree:/etc/config/*/
   messages:
     basename: i18n/message
   cache:

@@ -15,7 +15,7 @@ public class ConfigRunner implements ApplicationRunner {
 	@Autowired
 	private MyBean myBean;
 	
-	@Autowired
+//	@Autowired
 	private MyConfigTree configTree;
 	@Autowired
 	private MyProperties properties;
@@ -25,7 +25,7 @@ public class ConfigRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("mybean-name:"+myBean.getName());
-		System.out.println("config tree" + configTree.getDmname()+",mqname" + configTree.getMqname());
+//		System.out.println("config tree" + configTree.getDmname()+",mqname" + configTree.getMqname());
 		System.out.println("properties:"+properties);
 		System.out.println("类型自动转换:"+durationConfig.getSessionTimeout());
 		System.out.println("类型校验:"+durationConfig.getNumber());

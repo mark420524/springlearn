@@ -32,7 +32,6 @@
     	<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-validation</artifactId>
-    		
     	</dependency>
     	<dependency>
     		<groupId>org.springframework.boot</groupId>
@@ -54,6 +53,25 @@
 	        <plugin>
 	            <groupId>org.springframework.boot</groupId>
 	            <artifactId>spring-boot-maven-plugin</artifactId>
+	            <!-- 通过maven 打包方式构建docker，注释掉
+	            <executions>
+	                <execution>
+	                    <goals>
+	                        <goal>build-image-no-fork</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	            <configuration>
+                    <image>
+                        <env>
+                            <BP_JVM_VERSION>17</BP_JVM_VERSION>
+                        </env>
+                    </image>
+                     <docker>
+                        <host>tcp://192.168.247.128:2376</host>
+                    </docker>
+                </configuration>
+                -->
 	        </plugin>
 	        
 	        <plugin>
