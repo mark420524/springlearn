@@ -1,6 +1,47 @@
 server:
   port: 8888
 
+management:
+  server:
+    port: 9999
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    build:
+      enabled: true
+    env:
+      enabled: true
+    git:
+      enabled: true
+      mode: "full"
+    java:
+      enabled: true
+    os:
+      enabled: true
+  atlas:
+    metrics:
+      export:
+        uri: "http://192.168.247.128:7101/api/v1/publish"
+  tracing:
+    sampling:
+      probability: 1.0
+      
+  zipkin:
+    tracing:
+      endpoint: "http://192.168.247.128:9411/api/v2/spans"
+
+info:
+  app:
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"      
+
 spring:
   profiles:
     active: dev

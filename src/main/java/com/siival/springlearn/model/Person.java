@@ -1,6 +1,6 @@
 package com.siival.springlearn.model;
 
-import java.io.Serializable;
+
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -51,8 +51,10 @@
 
     <root level="INFO">
         <appender-ref ref="console" />
+        <!--  
         <appender-ref ref="info" />
         <appender-ref ref="error" />
+         -->
     </root>
 
 </configuration>

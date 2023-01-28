@@ -36,3 +36,5 @@ hs_err_pid*
 .project
 .settings/
 application-dev.yml
+*.pid
+*.port
