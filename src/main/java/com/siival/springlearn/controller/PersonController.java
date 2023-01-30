@@ -20,5 +20,10 @@ public class PersonController {
 	public Person findById(@PathVariable("id") Integer id) {
 		return personService.getPerson(id);
 	}
+	@GetMapping("/test/{times}")
+	public String testRollback(@PathVariable("times") Integer times) {
+		personService.rollback(times);
+		return "{\"roll\":1}";
+	}
 	
 }

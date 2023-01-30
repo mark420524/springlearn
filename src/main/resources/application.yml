@@ -74,10 +74,35 @@ spring:
     port: 5672
     username: admin
     password: admin
-
+    
+  jpa:
+    open-in-view: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
 
 name: classpathapplication
 
+app:
+  datasource:
+    first:
+      url: "jdbc:mysql://localhost/first"
+      username: "root"
+      password: "123456"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      configuration:
+        maximum-pool-size: 30
+
+    second:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: "jdbc:mysql://localhost/second"
+      username: "root"
+      password: "123456"
+      max-total: 30
 
 my:
   service:
