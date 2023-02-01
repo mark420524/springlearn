@@ -74,6 +74,11 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.siival</groupId>
+			  <artifactId>hellostarter</artifactId>
+			  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
     
     <build>

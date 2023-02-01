@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import com.siival.hellostarter.HelloService;
 import com.siival.springlearn.config.DurationConfig;
 import com.siival.springlearn.config.MyBean;
 import com.siival.springlearn.config.MyConfigTree;
@@ -21,6 +22,8 @@ public class ConfigRunner implements ApplicationRunner {
 	private MyProperties properties;
 	@Autowired
 	private DurationConfig durationConfig;
+	@Autowired
+	private HelloService helloService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -29,7 +32,7 @@ public class ConfigRunner implements ApplicationRunner {
 		System.out.println("properties:"+properties);
 		System.out.println("类型自动转换:"+durationConfig.getSessionTimeout());
 		System.out.println("类型校验:"+durationConfig.getNumber());
-
+		helloService.sayHello();
 	}
 
 }
