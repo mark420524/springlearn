@@ -20,7 +20,7 @@ public class PersonController {
 	@GetMapping("/{id}")
 	public Person findById(@PathVariable("id") Integer id) {
 		if (id<1) {
-			throw new CustomerException("参数不正确");
+			throw new RuntimeException("参数不正确");
 		}		
 		return personService.getPerson(id);
 	}

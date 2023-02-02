@@ -17,4 +17,9 @@ public class GlobalExceptionController {
 	public Result handlerCustomerException(CustomerException e ) {
 		return Result.error(e.getMessage());
 	}
+	
+	@ExceptionHandler(RuntimeException.class) 
+	public Result handlerRuntimeException(RuntimeException e ) {
+		return Result.error(e.getMessage());
+	}
 }
