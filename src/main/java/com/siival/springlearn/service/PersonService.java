@@ -6,6 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import com.siival.springlearn.config.transaction.MultipleTransaction;
 import com.siival.springlearn.first.data.TestFirst;
@@ -22,6 +29,10 @@ public class PersonService {
 	private TestFirstRepo firstRepo;
 	@Autowired
 	private TestSecondRepo secondRepo;
+	@Autowired
+	private  PlatformTransactionManager transactionManager;
+	@Autowired
+	private TransactionTemplate transactionTemplate;
 	
 //	@CacheEvict 清空缓存
 	@Cacheable(key = "'id:' + #p0")
@@ -49,5 +60,58 @@ public class PersonService {
 		if (a>0) {
 			throw new RuntimeException("抛异常事务回滚");
 		}
+	}
+	
+	public TestFirst transactionCode(Integer id ) {
+		TransactionStatus  status = transactionManager.getTransaction(new DefaultTransactionDefinition());
+		try {
+			TestFirst first = new TestFirst();
+			first.setName("first" + id);
+			firstRepo.save(first);
+			if (id>100) {
+				throw new Exception("抛异常");
+			}
+			transactionManager.commit(status);
+			return first;
+		}catch (Exception e) {
+			transactionManager.rollback(status);
+		}
+		return null;
+		
+	}
+	
+	public TestFirst transactionTemplate(Integer id ) {
+		final TestFirst first = new TestFirst();
+		first.setName("first" + id);
+		
+		TestFirst s = transactionTemplate.execute(new TransactionCallback<TestFirst>() {
+
+			@Override
+			public TestFirst doInTransaction(TransactionStatus status) {
+				try {
+					firstRepo.save(first);
+					if (id>100) {
+						throw new Exception("抛异常");
+					}
+					return first;
+				}catch(Exception e) {
+					status.setRollbackOnly();
+					return null;
+				}
+			}
+			
+		});
+		return s;
+	}
+	
+	@Transactional(rollbackFor = Exception.class)
+	public TestFirst saveFirstById(Integer id) throws Exception {
+		TestFirst first = new TestFirst();
+		first.setName("first" + id);
+		firstRepo.save(first);
+		if (id>100) {
+			throw new Exception("异常抛出");
+		}
+		return first;
 	}
 }
