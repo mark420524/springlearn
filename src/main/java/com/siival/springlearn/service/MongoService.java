@@ -20,5 +20,8 @@ public class MongoService {
 		Set<String> set = mongoTemplate.getCollectionNames();
 		return set;
 	}
+	
+	public void saveInfo() {
+	}
      
 }
