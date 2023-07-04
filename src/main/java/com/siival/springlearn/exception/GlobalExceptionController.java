@@ -15,11 +15,13 @@ public class GlobalExceptionController {
 
 	@ExceptionHandler(CustomerException.class) 
 	public Result handlerCustomerException(CustomerException e ) {
+		e.printStackTrace();
 		return Result.error(e.getMessage());
 	}
 	
 	@ExceptionHandler(RuntimeException.class) 
 	public Result handlerRuntimeException(RuntimeException e ) {
+		e.printStackTrace();
 		return Result.error(e.getMessage());
 	}
 }

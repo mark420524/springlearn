@@ -59,6 +59,7 @@ spring:
       host: 192.168.247.128
       port: 6379
       timeout: 5000
+      password: 123456
     mongodb:
       host: 192.168.247.128
       port: 27017
