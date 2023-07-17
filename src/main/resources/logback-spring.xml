@@ -5,12 +5,14 @@
 
     <!--输出到控制台-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    	<!-- 
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
         </filter>
+         -->
         <encoder>
             <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5p) %cyan([%F:%L]) %m - Thread:%t %n</pattern>-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%F:%L] %m - Thread:%t %n</pattern>
+            <pattern>%X{txId}-%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%F:%L] %m - Thread:%t %n</pattern>
         </encoder>
     </appender>
 
@@ -48,7 +50,12 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%F:%L] %m - Thread:%t %n</pattern>
         </encoder>
     </appender>
-
+    <!--  
+    <logger  name="org.hibernate.SQL" level="DEBUG"    >
+	</logger>
+	<logger name="org.hibernate.orm.jdbc.bind" level="trace"    >
+	</logger>
+	-->
     <root level="INFO">
         <appender-ref ref="console" />
         <!--  
@@ -56,5 +63,4 @@
         <appender-ref ref="error" />
          -->
     </root>
-
 </configuration>

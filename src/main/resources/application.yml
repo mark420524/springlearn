@@ -87,10 +87,21 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+        session:
+          events:
+            auto: com.siival.springlearn.config.transaction.TransactionInfoSessionEventListener
       jakarta:
         persistence:
           sharedCache:
             mode: ENABLE_SELECTIVE
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        orm:
+          jdbc:
+            bind: trace
 
 name: classpathapplication
 

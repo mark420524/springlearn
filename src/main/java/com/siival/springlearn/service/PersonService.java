@@ -107,11 +107,17 @@ public class PersonService {
 	@Transactional(rollbackFor = Exception.class)
 	public TestFirst saveFirstById(Integer id) throws Exception {
 		TestFirst first = new TestFirst();
-		first.setName("first" + id);
+		first.setName("first1=" + id);
 		firstRepo.save(first);
 		if (id>100) {
 			throw new Exception("异常抛出");
 		}
+		TestFirst first2 = new TestFirst();
+		first2.setName("first2=" + id);
+		firstRepo.save(first2);
+		TestSecond second = new TestSecond();
+		second.setName("second"+id);
+		secondRepo.save(second);
 		return first;
 	}
 }
