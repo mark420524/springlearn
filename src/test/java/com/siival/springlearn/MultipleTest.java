@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.siival.springlearn.config.transaction.TransactionConstant;
 import com.siival.springlearn.first.data.TestFirst;
 import com.siival.springlearn.first.repo.TestFirstRepo;
+import com.siival.springlearn.first.repo.TestRepo;
 import com.siival.springlearn.second.data.TestSecond;
 import com.siival.springlearn.second.repo.TestSecondRepo;
-
+import com.siival.springlearn.first.data.TestId;
 /**
  * @time 2023年1月30日下午4:18:44
  * @author mark acrossxwall@gmail.com
@@ -25,6 +26,8 @@ public class MultipleTest {
 	private TestFirstRepo firstRepo;
 	@Autowired
 	private TestSecondRepo secondRepo;
+	@Autowired
+	private TestRepo testRepository;
 	
 	@Test
 	public void testFirst() {
@@ -68,4 +71,11 @@ public class MultipleTest {
 			throw new RuntimeException("抛异常事务回滚");
 		}
 	}
+	
+	@Test
+    public void testGenerateId() {
+        TestId t = new TestId();
+        t.setName("test1");
+        testRepository.save(t);
+    }
 }
