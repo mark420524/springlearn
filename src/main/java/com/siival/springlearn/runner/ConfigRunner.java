@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import com.siival.hellostarter.HelloService;
 import com.siival.springlearn.config.DurationConfig;
 import com.siival.springlearn.config.MyBean;
-import com.siival.springlearn.config.MyConfigTree;
 import com.siival.springlearn.config.MyProperties;
 @Component
 public class ConfigRunner implements ApplicationRunner {
@@ -17,7 +16,7 @@ public class ConfigRunner implements ApplicationRunner {
 	private MyBean myBean;
 	
 //	@Autowired
-	private MyConfigTree configTree;
+//	private MyConfigTree configTree;
 	@Autowired
 	private MyProperties properties;
 	@Autowired

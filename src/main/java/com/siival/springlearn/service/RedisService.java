@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SessionCallback;
@@ -32,10 +31,11 @@ public class RedisService {
 		return redisUtils.addIncrement(key);
 	}
 
-	
+	@SuppressWarnings({"rawtypes","unchecked"})
 	public void redisTransaction() {
 		List<Object> list = redisTemplate.execute(new  SessionCallback<List<Object>>() {
 
+			
 			@Override
 			public  List<Object> execute(RedisOperations operations) throws DataAccessException {
 				operations.multi();

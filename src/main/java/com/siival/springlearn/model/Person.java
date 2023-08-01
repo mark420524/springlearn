@@ -3,7 +3,6 @@ package com.siival.springlearn.model;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import com.siival.springlearn.enums.Sensitive;
 import com.siival.springlearn.enums.SensitiveStragtey;
